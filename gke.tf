@@ -45,6 +45,13 @@ resource "google_container_cluster" "main" {
   }
 
   deletion_protection = true
+  resource_labels = {
+    app              = "vitalbridge"
+    data-sensitivity = "phi"
+    env              = "production"
+    hipaa-scope      = "true"
+    managed-by       = "terraform"
+  }
 }
 
 resource "google_container_node_pool" "main" {
