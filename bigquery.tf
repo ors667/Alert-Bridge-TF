@@ -21,6 +21,9 @@ resource "google_bigquery_dataset" "vitals" {
     role          = "OWNER"
     user_by_email = google_service_account.vitalbridge_workload.email
   }
+  lifecycle {
+    prevent_destroy = true
+}
 }
 
 resource "google_bigquery_table" "vitals_readings" {
