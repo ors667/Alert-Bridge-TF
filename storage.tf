@@ -43,6 +43,9 @@ resource "google_storage_bucket" "vitals_archive" {
     condition { age = 2557 }
     action { type = "Delete" }
   }
+  lifecycle {
+    prevent_destroy = true
+}
 }
 
 resource "google_storage_bucket_iam_member" "vitals_archive_workload" {
