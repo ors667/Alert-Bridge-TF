@@ -5,7 +5,7 @@
 # ---------------------------------------------------------------------------
 
 resource "google_kms_key_ring" "phi_keyring" {
-  name     = "${local.app}-keyring"
+  name     = "alert-bridge-keyring"
   location = var.region
 }
 
