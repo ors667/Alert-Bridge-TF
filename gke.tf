@@ -45,6 +45,10 @@ resource "google_container_cluster" "main" {
   }
 
   deletion_protection = true
+  database_encryption {
+    state    = "ENCRYPTED"
+    key_name = google_kms_crypto_key.phi_key.id
+}
 }
 
 resource "google_container_node_pool" "main" {
