@@ -10,7 +10,7 @@ resource "google_kms_key_ring" "phi_keyring" {
 }
 
 resource "google_kms_crypto_key" "phi_key" {
-  name            = "${local.app}-cmek"
+  name                       = "alert-bridge-cmek"
   key_ring        = google_kms_key_ring.phi_keyring.id
   rotation_period = "7776000s" # 90 days
   destroy_scheduled_duration = "2592000s" # 30 days
