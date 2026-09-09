@@ -43,6 +43,9 @@ resource "google_storage_bucket" "vitals_archive" {
     condition { age = 2557 }
     action { type = "Delete" }
   }
+  encryption {
+    default_kms_key_name = google_kms_crypto_key.phi_key.id
+}
 }
 
 resource "google_storage_bucket_iam_member" "vitals_archive_workload" {
